@@ -1,0 +1,24 @@
+{
+  "queries": [
+    {
+      "server": "127.0.0.1",
+      "user": "MYSQL-USER",
+      "password": "MYSQL-PASSWORD",
+      "database": "",
+      "query": "SELECT table_schema AS 'Database',SUM(data_length + index_length) / (1024 * 1024) AS 'Size' FROM information_schema.tables GROUP BY table_schema;",
+      "metric_name": "mysql_custom",
+      "metric_fields": [
+        {
+          "index" : 1,
+          "name": "db_size_mb"
+        }
+      ],
+       "label_fields": [
+         {
+           "index": 0,
+           "name": "db_name"
+         }
+      ]
+    }
+  ]
+}
